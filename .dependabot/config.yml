@@ -1,0 +1,22 @@
+version: 1
+
+update_configs:
+  - package_manager: "javascript"
+    directory: "/server"
+    update_schedule: "live"
+    target_branch: "security"
+    update_schedule: "daily"
+    default_labels:
+      - "security"
+      - "dependencies"
+      - "dependabot"
+
+  - package_manager: "javascript"
+    directory: "/client"
+    update_schedule: "live"
+    target_branch: "security"
+    update_schedule: "daily"
+    default_labels:
+      - "security"
+      - "dependencies"
+      - "dependabot"
