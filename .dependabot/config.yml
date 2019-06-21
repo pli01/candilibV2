@@ -5,9 +5,6 @@ update_configs:
     directory: "/server"
     update_schedule: "live"
     target_branch: "security"
-    allowed_updates:
-     - match:
-         update_type: "security"
     default_labels:
       - "security"
       - "dependencies"
@@ -17,9 +14,6 @@ update_configs:
     directory: "/client"
     update_schedule: "live"
     target_branch: "security"
-    allowed_updates:
-     - match:
-         update_type: "security"
     default_labels:
       - "security"
       - "dependencies"
