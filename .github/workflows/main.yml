@@ -1,0 +1,19 @@
+name: Sync Fork
+
+on:
+  schedule:
+  - cron: '*/5 * * * *'
+
+jobs:
+  sync:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Fork Sync
+      uses: TG908/fork-sync@v1.1.4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        owner: pli01
+        base: devops/build-env-dev-on-netlify-heroku
+        head: devops/build-env-dev-on-netlify-heroku
