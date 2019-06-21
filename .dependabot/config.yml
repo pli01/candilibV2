@@ -5,6 +5,7 @@ update_configs:
     directory: "/server"
     update_schedule: "live"
     target_branch: "security"
+    update_schedule: "daily"
     default_labels:
       - "security"
       - "dependencies"
@@ -14,6 +15,7 @@ update_configs:
     directory: "/client"
     update_schedule: "live"
     target_branch: "security"
+    update_schedule: "daily"
     default_labels:
       - "security"
       - "dependencies"
