@@ -25,7 +25,9 @@
     "pretest": "npm run lint",
     "test:all": "run-s test test:client",
     "test:client": "cd .. ; cd client ; npm test",
-    "test": "cross-env NODE_ENV=test jest --detectOpenHandles --forceExit"
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles --forceExit",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [
     "Candidat",
@@ -57,7 +59,8 @@
     "nodemailer-smtp-transport": "^2.7.4",
     "sanitize-html": "^1.20.1",
     "uuid": "^3.3.2",
-    "winston": "^3.2.1"
+    "winston": "^3.2.1",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -155,5 +158,6 @@
         "always-multiline"
       ]
     }
-  }
+  },
+  "snyk": true
 }
