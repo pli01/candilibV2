@@ -70,7 +70,7 @@
     "postcss-nested": "^4.1.2",
     "postcss-nested-ancestors": "^2.0.0",
     "postcss-nesting": "^7.0.0",
-    "postcss-preset-env": "^6.6.0",
+    "postcss-preset-env": "^6.7.0",
     "resolve-url-loader": "^3.1.0",
     "stylelint-config-standard": "^18.3.0",
     "stylus": "^0.54.5",
