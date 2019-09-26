@@ -190,5 +190,9 @@ mongo-dev
 VERSION
 candilib-*-build/
 
+<<<<<<< HEAD
 test-db
 mongo
+=======
+manon/out
+>>>>>>> :sparkles: Automate bordereaux sending
