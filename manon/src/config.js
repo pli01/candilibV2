@@ -1,5 +1,5 @@
 /**
- * @typedef {Object} ManonConfig
+ * @typedef {Object} SchedulerConfig
  * @property {Object} db Info de la base de données
  * @property {Object} api Info de l'API
  * @property {string} db.dbName Nom de la base de données
@@ -12,7 +12,7 @@
  */
 
 /**
- * @returns {ManonConfig}
+ * @returns {SchedulerConfig}
  */
 export default () => {
   const {
@@ -20,6 +20,7 @@ export default () => {
     DB_NAME,
     DB_USER,
     DB_PASS,
+    MONGO_URL,
 
     API_BASE_URL,
     API_PREFIX,
@@ -33,6 +34,7 @@ export default () => {
       dbName: DB_NAME,
       dbUser: DB_USER,
       dbPass: DB_PASS,
+      mongoUrl: MONGO_URL,
       agendaCollectionName: AGENDA_COLLECTION_NAME,
     },
 
