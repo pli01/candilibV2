@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "build": "export NODE_ENV=development ; cd server && npm install && npm run build && npm run dev-setup",
+    "start": "export NODE_ENV=production ; cd server && npm install --production && npm run start:prod"
+  }
+}
