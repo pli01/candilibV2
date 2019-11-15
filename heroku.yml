@@ -1,0 +1,7 @@
+build:
+  docker:
+     web: server/api.Dockerfile
+  config:
+    NPM_AUDIT_DRY_RUN: true
+run:
+  web: npm run dev-setup ; pm2-runtime start ecosystem.config.js --env production
