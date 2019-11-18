@@ -22,6 +22,7 @@ jobs:
           password $HEROKU_TOKEN
         EOF
         chmod 600 ~/.netrc
+        ls -alsrt ~/.netrc
         heroku git:remote --app $HEROKU_APP
         heroku apps
 
