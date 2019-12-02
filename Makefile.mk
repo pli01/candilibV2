@@ -97,6 +97,9 @@ SASS_REGISTRY  := $(shell echo $$SASS_REGISTRY )
 CYPRESS_DOWNLOAD_MIRROR  := $(shell echo $$CYPRESS_DOWNLOAD_MIRROR )
 NPM_AUDIT_DRY_RUN  := $(shell echo $$NPM_AUDIT_DRY_RUN )
 
+CANDIDAT_PUBLIC_PATH=/candilib
+ADMIN_PUBLIC_PATH=/candilib-repartiteur
+
 # Run env
 # export all variables in subshell
 export
