@@ -1,7 +1,7 @@
 #######################
 # Step 1: Base target #
 #######################
-FROM cypress/browsers:node12.4.0-chrome76 as base
+FROM cypress/browsers:node12.6.0-chrome77 as base
 ARG http_proxy
 ARG https_proxy
 ARG npm_registry
@@ -34,7 +34,7 @@ COPY package.json package-lock.json ./
 COPY cypress.json cypress.env.json ./
 COPY e2e-entrypoint.sh /e2e-entrypoint.sh
 # Install app dependencies
-RUN npm --no-git-tag-version version ${APP_VERSION} ; npm install cypress-file-upload
+RUN npm --no-git-tag-version version ${APP_VERSION} ; npm install cypress-file-upload cypress@3.6.1
 RUN [ -f /e2e-entrypoint.sh ]&& chmod +x /e2e-entrypoint.sh
 
 #CMD ["npm","run", "cypress"]
