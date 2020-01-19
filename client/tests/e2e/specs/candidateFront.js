@@ -386,6 +386,7 @@ describe('Connected candidate front', () => {
     }).should('have.property', 'Content')
   })
 
+/*
   it('Should have a penalty when candidat cancel within 6 days of booked place ', () => {
     cy.adminLogin()
     cy.addCandidatToPlace(nowIn1WeekAnd1DaysBefore)
@@ -426,7 +427,7 @@ describe('Connected candidate front', () => {
       .should('contain', Cypress.env('centre').toUpperCase())
       .and('contain', '08:00')
   })
-
+*/
   it('Should disconnect', () => {
     cy.visit(magicLink)
     cy.get('.t-disconnect')
