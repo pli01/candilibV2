@@ -96,6 +96,7 @@ NPM_REGISTRY  := $(shell echo $$NPM_REGISTRY )
 SASS_REGISTRY  := $(shell echo $$SASS_REGISTRY )
 CYPRESS_DOWNLOAD_MIRROR  := $(shell echo $$CYPRESS_DOWNLOAD_MIRROR )
 NPM_AUDIT_DRY_RUN  := $(shell echo $$NPM_AUDIT_DRY_RUN )
+DISABLE_UNIT_TEST  := $(shell echo $$DISABLE_UNIT_TEST )
 
 # Run env
 LINE_DELAY := $(shell [ -n "$$LINE_DELAY" ] && echo $$LINE_DELAY )

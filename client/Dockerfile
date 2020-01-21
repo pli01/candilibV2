@@ -58,11 +58,18 @@ CMD ["npm", "run", "storybook:serve" ]
 # Step 3: "build" target #
 ##########################
 FROM development as build
+ARG DISABLE_UNIT_TEST
 ENV NPM_CONFIG_LOGLEVEL warn
 ARG CLIENT_BUILD_TARGET
 # Transpile the code with babel
 #RUN set -x ; npm run format && npm run lint && npm run test && npm run build:${CLIENT_BUILD_TARGET}
-RUN set -x ; npm run format && npm run test && npm run build:${CLIENT_BUILD_TARGET}
+RUN set -x ; npm run format &&  \
+     ( if [ -n "$DISABLE_UNIT_TEST" ] && [ X"$DISABLE_UNIT_TEST" = X"true" ] ; then \
+         echo "DISABLE UNIT TEST" ; \
+       else \
+         npm run test ; \
+       fi ; \
+      ) && npm run build:${CLIENT_BUILD_TARGET}
 
 ###############################
 # Step 4: "production" target #

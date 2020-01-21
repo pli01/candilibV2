@@ -15,6 +15,7 @@ services:
         sass_registry: ${SASS_REGISTRY}
         CYPRESS_DOWNLOAD_MIRROR: ${CYPRESS_DOWNLOAD_MIRROR}
         NPM_AUDIT_DRY_RUN: ${NPM_AUDIT_DRY_RUN}
+        DISABLE_UNIT_TEST: ${DISABLE_UNIT_TEST}
         CLIENT_BUILD_TARGET: candidat
         PUBLIC_PATH: /candilib
         APP_VERSION: ${APP_VERSION}
@@ -49,6 +50,7 @@ services:
         sass_registry: ${SASS_REGISTRY}
         CYPRESS_DOWNLOAD_MIRROR: ${CYPRESS_DOWNLOAD_MIRROR}
         NPM_AUDIT_DRY_RUN: ${NPM_AUDIT_DRY_RUN}
+        DISABLE_UNIT_TEST: ${DISABLE_UNIT_TEST}
         CLIENT_BUILD_TARGET: admin
         PUBLIC_PATH: /candilib-repartiteur
         APP_VERSION: ${APP_VERSION}
