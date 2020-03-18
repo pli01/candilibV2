@@ -41,6 +41,16 @@ DC_APP_DB_BUILD_DEV    := $(APP_DB_PATH)/docker-compose.dev.db.yml
 DC_APP_DB_RUN_DEV      := $(APP_DB_PATH)/docker-compose.dev.db.yml
 
 # docker-compose file: production (build or run time)
+DOCKER_REPOSITORY := 
+DOCKER_FRONT_CANDIDAT_IMAGE_NAME  := candilib_front_candidat
+DOCKER_FRONT_CANDIDAT_APP_VERSION := $(APP_VERSION)
+DOCKER_FRONT_ADMIN_IMAGE_NAME     := candilib_front_admin
+DOCKER_FRONT_ADMIN_APP_VERSION    := $(APP_VERSION)
+DOCKER_API_IMAGE_NAME             := candilib_api
+DOCKER_API_APP_VERSION            := $(APP_VERSION)
+DOCKER_DB_IMAGE_NAME              := mongo
+DOCKER_DB_APP_VERSION             := 4.0.6
+
 # (all containers in one compose)
 DC_APP_BUILD_PROD := $(APP_API_PATH)/docker-compose.prod.all.yml
 DC_APP_RUN_PROD   := $(APP_API_PATH)/docker-compose.prod.all.yml

@@ -2,7 +2,7 @@
 version: '3.5'
 services:
   front_candidat:
-    image: candilib_front_candidat:${APP_VERSION:-latest}
+    image: ${DOCKER_FRONT_CANDIDAT_IMAGE_NAME:-candilib_front_candidat}:${DOCKER_FRONT_CANDIDAT_APP_VERSION:-latest}
     container_name: ${CONTAINER_NAME_CANDIDAT:-candilib_front_candidat}
     build:
       context: ./
@@ -36,7 +36,7 @@ services:
 #    networks:
 #      - candilib-network
   front_admin:
-    image: candilib_front_admin:${APP_VERSION:-latest}
+    image: ${DOCKER_FRONT_ADMIN_IMAGE_NAME:-candilib_front_admin}:${DOCKER_FRONT_ADMIN_APP_VERSION:-latest}
     container_name: ${CONTAINER_NAME_ADMIN:-candilib_front_admin}
     build:
       context: ./

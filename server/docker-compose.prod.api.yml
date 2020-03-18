@@ -2,7 +2,7 @@
 version: '3.5'
 services:
   api:
-    image: candilib_api:${APP_VERSION:-latest}
+    image: ${DOCKER_API_IMAGE_NAME:-candilib_api}:${DOCKER_API_APP_VERSION:-latest}
     container_name: candilib_api
     build:
       target: production
