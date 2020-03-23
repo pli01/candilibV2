@@ -208,6 +208,10 @@ down-e2e: ## Down e2e container
 	${DC} -f ${DC_APP_E2E_RUN_PROD} down
 stop-e2e: ## Stop e2e container
 	${DC} -f ${DC_APP_E2E_RUN_PROD} stop e2e
+up-mailhog: check-up-e2e network-up ## Build e2e container
+	${DC} -f ${DC_APP_E2E_RUN_PROD} up ${DC_RUN_ARGS} mailhog
+rm-mailhog: ## Stop e2e container
+	${DC} -f ${DC_APP_E2E_RUN_PROD} rm -f mailhog
 stop-mailhog: ## Stop e2e container
 	${DC} -f ${DC_APP_E2E_RUN_PROD} stop mailhog
 #
