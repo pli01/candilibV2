@@ -29,7 +29,7 @@ before_script:
   - docker version
 script:
   - ( git fetch --unshallow || true ) && git tag -l
-  - ci/run-tests.sh
+  - export VUE_APP_CLIENT_BUILD_INFO="" ; ci/run-tests.sh
 
 deploy:
   - provider: script
