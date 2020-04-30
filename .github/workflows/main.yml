@@ -1,0 +1,30 @@
+name: CI
+
+on: [push]
+env:
+  HEROKU_APP: candilib-api-dev
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a multi-line script
+      env:
+        HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
+        HEROKU_TOKEN: ${{ secrets.HEROKU_TOKEN }}
+      run: |
+        heroku version
+        cat >~/.netrc <<EOF
+        machine api.heroku.com
+          login $HEROKU_EMAIL
+          password $HEROKU_TOKEN
+        machine git.heroku.com
+          login $HEROKU_EMAIL
+          password $HEROKU_TOKEN
+        EOF
+        chmod 600 ~/.netrc
+        heroku git:remote --app $HEROKU_APP
+        git push heroku HEAD:master -f
+
