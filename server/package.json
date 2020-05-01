@@ -29,7 +29,9 @@
     "jsdoc:watch": "nodemon --watch src --watch README.md --exec 'npm run jsdoc'",
     "jsdoc:serve": "browser-sync start --no-ui --server --open --files out/**/* --ss out",
     "jsdoc-dev": "run-p jsdoc:*",
-    "jsdoc": "jsdoc -c jsdoc-config.js -r src README.md"
+    "jsdoc": "jsdoc -c jsdoc-config.js -r src README.md",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [
     "Candidat",
@@ -66,7 +68,8 @@
     "stream-buffers": "^3.0.2",
     "uuid": "^3.3.3",
     "winston": "^3.2.1",
-    "xlsx-stream-reader": "^1.1.0"
+    "xlsx-stream-reader": "^1.1.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -173,5 +176,6 @@
         "always-multiline"
       ]
     }
-  }
+  },
+  "snyk": true
 }
