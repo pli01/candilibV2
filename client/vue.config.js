@@ -9,6 +9,7 @@ module.exports = {
   outputDir: 'dist',
 
   devServer: {
+    disableHostCheck: true,
     proxy: {
       '/candilib/api': {
         pathRewrite: {
