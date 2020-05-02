@@ -1,0 +1,91 @@
+# conf front admin
+server {
+  listen <%= ENV['PORT'] %>;
+
+  client_max_body_size 10m;
+
+  location / {
+    try_files $uri @rew;
+  }
+
+<% if ENV['CANDIDAT_PUBLIC_PATH'] %>
+  location /robots.txt {
+    expires 24h;
+    return 200 "User-agent: *\nDisallow: <%= ENV['CANDIDAT_PUBLIC_PATH'] %>/api/\nAllow: /";
+  }
+
+  location @rew {
+    expires 24h;
+    if ($http_x_forwarded_proto) {
+       return 302 $http_x_forwarded_proto://$http_host<%= ENV['CANDIDAT_PUBLIC_PATH'] %>/;
+    }
+    return 302 $scheme://$http_host<%= ENV['CANDIDAT_PUBLIC_PATH'] %>/;
+  }
+
+
+  location <%= ENV['CANDIDAT_PUBLIC_PATH'] %> {
+    expires 24h;
+    alias /app/dist-candidat;
+    try_files $uri $uri/ @rewrites_candidat;
+
+    location ~ "^<%= ENV['CANDIDAT_PUBLIC_PATH'] %>/config-candilib.json" {
+      expires -1;
+      add_header 'Cache-Control' 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
+    }
+  }
+
+  location @rewrites_candidat {
+    rewrite ^(.+)$ <%= ENV['CANDIDAT_PUBLIC_PATH'] %>/index.html last;
+  }
+
+  location ~ "^<%= ENV['CANDIDAT_PUBLIC_PATH'] %>/api/v2(/public|(/auth)?/candidat)" {
+    rewrite "^<%= ENV['CANDIDAT_PUBLIC_PATH'] %>(.*)$" $1 break;
+    add_header Access-Control-Allow-Origin '$http_origin';
+    proxy_pass https://<%= ENV['API_HOST'] %>:<%= ENV['API_PORT'] %>;
+    proxy_redirect off;
+    proxy_buffering off;
+    proxy_http_version 1.1;
+  }
+
+<% end %>
+<% if ENV['ADMIN_PUBLIC_PATH'] %>
+  location /robots.txt {
+    expires 24h;
+    return 200 "User-agent: *\nDisallow: <%= ENV['ADMIN_PUBLIC_PATH'] %>/api/\nAllow: /";
+  }
+
+  location @rew {
+    expires 24h;
+    if ($http_x_forwarded_proto) {
+       return 302 $http_x_forwarded_proto://$http_host<%= ENV['ADMIN_PUBLIC_PATH'] %>/;
+    }
+    return 302 $scheme://$http_host<%= ENV['ADMIN_PUBLIC_PATH'] %>/;
+  }
+
+
+  location <%= ENV['ADMIN_PUBLIC_PATH'] %> {
+    expires 24h;
+    alias /app/dist-admin;
+    try_files $uri $uri/ @rewrites_admin;
+
+    location ~ "^<%= ENV['ADMIN_PUBLIC_PATH'] %>/config-candilib.json" {
+      expires -1;
+      add_header 'Cache-Control' 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
+    }
+  }
+
+  location @rewrites_admin {
+    rewrite ^(.+)$ <%= ENV['ADMIN_PUBLIC_PATH'] %>/index.html last;
+  }
+
+  location ~ "^<%= ENV['ADMIN_PUBLIC_PATH'] %>/api/v2" {
+    rewrite "^<%= ENV['ADMIN_PUBLIC_PATH'] %>(.*)$" $1 break;
+    add_header Access-Control-Allow-Origin '$http_origin';
+    proxy_pass https://<%= ENV['API_HOST'] %>:<%= ENV['API_PORT'] %>;
+    proxy_redirect off;
+    proxy_buffering off;
+    proxy_http_version 1.1;
+  }
+
+<% end %>
+}
