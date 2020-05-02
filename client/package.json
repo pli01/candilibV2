@@ -16,6 +16,7 @@
     "lint:style": "vue-cli-service lint:style",
     "prebuild:admin": "cp .env.admin .env",
     "prebuild:candidat": "cp .env.candidat .env",
+    "scalingo-prebuild": "cp .env.scalingo .env.development",
     "sb": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
     "start": "npm run serve",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
