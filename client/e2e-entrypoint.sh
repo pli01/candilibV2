@@ -2,7 +2,8 @@
 #
 # entrypoint e2e
 #
-
+set -x
+env
 # reset proxy config at runtime
 npm config delete proxy
 npm config delete https-proxy
