@@ -94,6 +94,7 @@ ARG PUBLIC_PATH
 COPY --from=production /app/dist /usr/share/nginx/html
 COPY nginx/nginx-run-${CLIENT_BUILD_TARGET}.template /etc/nginx/conf.d/default.template
 COPY nginx/nginx.template /etc/nginx/nginx.template
+COPY nginx/stub_status.conf /etc/nginx/conf.d/stub_status.conf
 COPY nginx/run.sh /run.sh
 RUN [ -f "/run.sh" ] && chmod +x /run.sh ; sed -i -e "s|<PUBLIC_PATH>|${PUBLIC_PATH}|g;" /etc/nginx/conf.d/default.template
 

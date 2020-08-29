@@ -27,6 +27,23 @@ dirname=$(dirname $0)
 timeout=120;
 curl_args=" --retry-max-time 120 --retry-delay 1  --retry 1 "
 
+echo "Check $container_name: available"
+test_result=1
+until [ "$timeout" -le 0 -o "$test_result" -eq "0" ] ; do
+        set +e
+        ( curl -s -X GET -L http://localhost:88${FRONT_CANDIDAT_PORT:-80}/server-status )
+	test_result=$?
+	echo "Wait $timeout seconds: ${APP}-$container_name up $test_result";
+	(( timeout-- ))
+	sleep 1
+done
+set -e
+if [ "$test_result" -gt "0" ] ; then
+	ret=$test_result
+	echo "ERROR: ${APP}-$container_name en erreur"
+	exit $ret
+fi
+
 echo "Check $container_name: API magick link $api_candidat_link available"
 test_result=1
 until [ "$timeout" -le 0 -o "$test_result" -eq "0" ] ; do

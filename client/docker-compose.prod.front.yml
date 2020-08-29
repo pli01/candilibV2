@@ -32,6 +32,7 @@ services:
       APP_USER_BURST: ${APP_USER_BURST}
     ports:
       - "${FRONT_CANDIDAT_PORT:-80}:80"
+      - "88${FRONT_CANDIDAT_PORT:-80}:8880"
     restart: always
 #    networks:
 #      - candilib-network
@@ -64,6 +65,7 @@ services:
       APP_USER_BURST: ${APP_USER_BURST}
     ports:
       - "${FRONT_ADMIN_PORT:-80}:80"
+      - "88${FRONT_ADMIN_PORT:-80}:8880"
     restart: always
 #    networks:
 #      - candilib-network
