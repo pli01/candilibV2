@@ -67,6 +67,7 @@ COPY ci ci/
 # Copy the pm2 config
 COPY ecosystem.config.js .
 # Copy the transpiled code to use in production (in /app)
+RUN true
 COPY --from=build /app/dist ./dist
 # Install production dependencies and clean cache
 RUN unset NODE_ICU_DATA && \

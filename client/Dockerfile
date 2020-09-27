@@ -78,7 +78,9 @@ ARG NPM_AUDIT_DRY_RUN
 ENV NODE_ENV=production
 ARG APP_VERSION
 # Copy the transpiled code to use in production (in /app)
+RUN true
 COPY --from=build /app/dist ./dist
+RUN true
 COPY package.json package-lock.json ./
 # Install production dependencies and clean cache
 RUN npm --no-git-tag-version version ${APP_VERSION} && \
@@ -92,6 +94,7 @@ FROM nginx:stable
 ARG CLIENT_BUILD_TARGET
 ARG PUBLIC_PATH
 COPY --from=production /app/dist /usr/share/nginx/html
+RUN true
 COPY nginx/nginx-run-${CLIENT_BUILD_TARGET}.template /etc/nginx/conf.d/default.template
 COPY nginx/nginx.template /etc/nginx/nginx.template
 COPY nginx/run.sh /run.sh
