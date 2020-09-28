@@ -61,7 +61,7 @@
     "nodemailer": "^6.4.10",
     "nodemailer-html-to-text": "^3.1.0",
     "nodemailer-smtp-transport": "^2.7.4",
-    "sanitize-html": "^1.27.0",
+    "sanitize-html": "^2.0.0",
     "stream-buffers": "^3.0.2",
     "uuid": "^8.2.0",
     "winston": "^3.3.3",
