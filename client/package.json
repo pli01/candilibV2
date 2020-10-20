@@ -28,7 +28,7 @@
   "dependencies": {
     "ag-grid-community": "^23.2.1",
     "ag-grid-vue": "^23.2.1",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "core-js": "^3.6.5",
     "delay": "^4.4.0",
     "eslint-plugin-node": "^11.1.0",
