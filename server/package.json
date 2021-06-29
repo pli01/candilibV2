@@ -60,7 +60,7 @@
     "luxon": "^1.25.0",
     "mongoose": "^5.11.10",
     "morgan": "^1.10.0",
-    "nodemailer": "^6.4.17",
+    "nodemailer": "^6.6.1",
     "nodemailer-html-to-text": "^3.1.0",
     "nodemailer-smtp-transport": "^2.7.4",
     "pm2": "^4.5.1",
